@@ -9,4 +9,9 @@ public class HomeController {
 	public String Index() {
 		return "index";
 	}
+	
+	@RequestMapping("/myAccount")
+	public String myAccount() {
+		return "myAccount";
+	}
 }
