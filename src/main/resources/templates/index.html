@@ -21,7 +21,7 @@
 		style="width: 100%; height: 20px; background-color: #f46b42;"></div>
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
-		<a class="navbar-brand" href="#">Navbar</a>
+		<a class="navbar-brand" href="#">Bookstore</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarsExample09" aria-controls="navbarsExample09"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -30,26 +30,35 @@
 
 		<div class="collapse navbar-collapse" id="navbarsExample09">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Home
-						<span class="sr-only">(current)</span>
-				</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-				<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a>
-				</li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="http://example.com"
 					id="dropdown09" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false">Dropdown</a>
+					aria-expanded="false">Books</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown09">
-						<a class="dropdown-item" href="#">Action</a> <a
-							class="dropdown-item" href="#">Another action</a> <a
-							class="dropdown-item" href="#">Something else here</a>
+						<a class="dropdown-item" href="#">Browse the bookshelf</a> <a
+							class="dropdown-item" href="#">Store hours &#38; Directions</a> <a
+							class="dropdown-item" href="#">FAQ</a>
 					</div></li>
+				<li>
+					<form class="form-inline">
+						<input type="text" name="keyword" class="form-control mr-sm-2"
+							placeholder="Book title" />
+						<button type="submit" class="btn btn-default my-2 my-sm-0">Search</button>
+					</form>
+				</li>
 			</ul>
-			<form class="form-inline my-2 my-md-0">
-				<input class="form-control" type="text" placeholder="Search"
-					aria-label="Search" />
-			</form>
+			<ul class="navbar-nav navbar-right">
+				<li class="nav-item">
+					<a class="nav-link" href="#">SHOPPING CART</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">MY ACCOUNT</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">LOGOUT</a>
+				</li>
+			</ul>
+
 		</div>
 	</nav>
 
@@ -157,68 +166,77 @@
 			<div id="featured-books" class="carousel slide" data-ride="carousel">
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<div class="row">
-							<div class="col-2">
-								<img class="img-fluid" src="/image/1.png" />
-							</div>
-							<div class="col-2">
-								<img class="img-fluid" src="/image/1.png" />
-							</div>
-							<div class="col-2">
-								<img class="img-fluid" src="/image/1.png" />
-							</div>
-							<div class="col-2">
-								<img class="img-fluid" src="/image/1.png" />
-							</div>
-							<div class="col-2">
-								<img class="img-fluid" src="/image/1.png" />
-							</div>
-							<div class="col-2">
-								<img class="img-fluid" src="/image/1.png" />
-							</div>
-						</div>
-					</div>
-					<div class="carousel-item">
-						<div class="row">
-							<div class="col-2">
-								<img class="img-fluid" src="/image/2.png" />
-							</div>
-							<div class="col-2">
-								<img class="img-fluid" src="/image/2.png" />
-							</div>
-							<div class="col-2">
-								<img class="img-fluid" src="/image/2.png" />
-							</div>
-							<div class="col-2">
-								<img class="img-fluid" src="/image/2.png" />
-							</div>
-							<div class="col-2">
-								<img class="img-fluid" src="/image/2.png" />
-							</div>
-							<div class="col-2">
-								<img class="img-fluid" src="/image/2.png" />
+						<img src="/image/shelf.png" class="img-fluid" />
+						<div class="carousel-caption">
+							<div class="row">
+								<div class="col-2">
+									<img class="img-fluid" src="/image/1.png" />
+								</div>
+								<div class="col-2">
+									<img class="img-fluid" src="/image/1.png" />
+								</div>
+								<div class="col-2">
+									<img class="img-fluid" src="/image/1.png" />
+								</div>
+								<div class="col-2">
+									<img class="img-fluid" src="/image/1.png" />
+								</div>
+								<div class="col-2">
+									<img class="img-fluid" src="/image/1.png" />
+								</div>
+								<div class="col-2">
+									<img class="img-fluid" src="/image/1.png" />
+								</div>
 							</div>
 						</div>
 					</div>
 					<div class="carousel-item">
-						<div class="row">
-							<div class="col-2">
-								<img class="img-fluid" src="/image/3.png" />
+						<img src="/image/shelf.png" class="img-fluid" />
+						<div class="carousel-caption">
+							<div class="row">
+								<div class="col-2">
+									<img class="img-fluid" src="/image/2.png" />
+								</div>
+								<div class="col-2">
+									<img class="img-fluid" src="/image/2.png" />
+								</div>
+								<div class="col-2">
+									<img class="img-fluid" src="/image/2.png" />
+								</div>
+								<div class="col-2">
+									<img class="img-fluid" src="/image/2.png" />
+								</div>
+								<div class="col-2">
+									<img class="img-fluid" src="/image/2.png" />
+								</div>
+								<div class="col-2">
+									<img class="img-fluid" src="/image/2.png" />
+								</div>
 							</div>
-							<div class="col-2">
-								<img class="img-fluid" src="/image/3.png" />
-							</div>
-							<div class="col-2">
-								<img class="img-fluid" src="/image/3.png" />
-							</div>
-							<div class="col-2">
-								<img class="img-fluid" src="/image/3.png" />
-							</div>
-							<div class="col-2">
-								<img class="img-fluid" src="/image/3.png" />
-							</div>
-							<div class="col-2">
-								<img class="img-fluid" src="/image/3.png" />
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="/image/shelf.png" class="img-fluid" />
+						<div class="carousel-caption">
+							<div class="row">
+								<div class="col-2">
+									<img class="img-fluid" src="/image/1.png" />
+								</div>
+								<div class="col-2">
+									<img class="img-fluid" src="/image/1.png" />
+								</div>
+								<div class="col-2">
+									<img class="img-fluid" src="/image/1.png" />
+								</div>
+								<div class="col-2">
+									<img class="img-fluid" src="/image/1.png" />
+								</div>
+								<div class="col-2">
+									<img class="img-fluid" src="/image/1.png" />
+								</div>
+								<div class="col-2">
+									<img class="img-fluid" src="/image/1.png" />
+								</div>
 							</div>
 						</div>
 					</div>
