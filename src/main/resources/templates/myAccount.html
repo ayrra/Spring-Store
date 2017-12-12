@@ -25,19 +25,19 @@
 			<div class="col-9 offset-3">
 
 				<ul class="nav nav-tabs">
-					<li class="nav-item"><a class="nav-link" href="#tab-1"
+					<li class="nav-item"><a th:classappend="${classActiveNewAccount}? 'active'" class="nav-link" href="#tab-1"
 						data-toggle="tab"><span style="color: red;">Create new
 								account</span></a></li>
-					<li class="nav-item"><a class="nav-link active" href="#tab-2"
+					<li class="nav-item"><a th:classappend="${classActiveLogin}? 'active'" class="nav-link" href="#tab-2"
 						data-toggle="tab"><span style="color: red;">Log in</span></a></li>
-					<li class="nav-item"><a class="nav-link" href="#tab-3"
+					<li class="nav-item"><a th:classappend="${classActiveForgotPassword}? 'active'" class="nav-link" href="#tab-3"
 						data-toggle="tab"><span style="color: red;">Forgot
 								Password</span></a></li>
 				</ul>
 
 				<div class="tab-content">
 					<!-- new user pane -->
-					<div class="tab-pane fade" id="tab-1">
+					<div class="tab-pane fade" id="tab-1" th:classappend="${classActiveNewAccount}? 'show active'">
 						<div class="card" style="border: none;">
 							<div class="card-block"
 								style="background-color: #ededed; margin-top: 20px; margin-bottom: 20px; padding-top: 10px; padding-bottom: 10px;">
@@ -67,7 +67,7 @@
 						</div>
 					</div>
 					<!-- login pane -->
-					<div class="tab-pane fade active show" id="tab-2">
+					<div class="tab-pane fade" id="tab-2" th:classappend="${classActiveLogin}? 'show active'">
 						<div class="card" style="border: none;">
 							<div class="card-block"
 								style="background-color: #ededed; margin-top: 20px; margin-bottom: 20px; padding-top: 10px; padding-bottom: 10px;">
@@ -93,7 +93,7 @@
 						</div>
 					</div>
 					<!-- forgot password pane -->
-					<div class="tab-pane fade" id="tab-3">
+					<div class="tab-pane fade" id="tab-3" th:classappend="${classActiveForgotPassword}? 'show active'">
 						<div class="card" style="border: none;">
 							<div class="card-block"
 								style="background-color: #ededed; margin-top: 20px; margin-bottom: 20px; padding-top: 10px; padding-bottom: 10px;">
