@@ -25,23 +25,31 @@
 			<div class="col-9 offset-3">
 
 				<ul class="nav nav-tabs">
-					<li class="nav-item"><a th:classappend="${classActiveNewAccount}? 'active'" class="nav-link" href="#tab-1"
-						data-toggle="tab"><span style="color: red;">Create new
-								account</span></a></li>
-					<li class="nav-item"><a th:classappend="${classActiveLogin}? 'active'" class="nav-link" href="#tab-2"
-						data-toggle="tab"><span style="color: red;">Log in</span></a></li>
-					<li class="nav-item"><a th:classappend="${classActiveForgotPassword}? 'active'" class="nav-link" href="#tab-3"
-						data-toggle="tab"><span style="color: red;">Forgot
-								Password</span></a></li>
+					<li class="nav-item"><a
+						th:classappend="${classActiveNewAccount}? 'active'"
+						class="nav-link" href="#tab-1" data-toggle="tab"><span
+							style="color: red;">Create new account</span></a></li>
+					<li class="nav-item"><a
+						th:classappend="${classActiveLogin}? 'active'" class="nav-link"
+						href="#tab-2" data-toggle="tab"><span style="color: red;">Log
+								in</span></a></li>
+					<li class="nav-item"><a
+						th:classappend="${classActiveForgotPassword}? 'active'"
+						class="nav-link" href="#tab-3" data-toggle="tab"><span
+							style="color: red;">Forgot Password</span></a></li>
 				</ul>
 
 				<div class="tab-content">
 					<!-- new user pane -->
-					<div class="tab-pane fade" id="tab-1" th:classappend="${classActiveNewAccount}? 'show active'">
+					<div class="tab-pane fade" id="tab-1"
+						th:classappend="${classActiveNewAccount}? 'show active'">
 						<div class="card" style="border: none;">
 							<div class="card-block"
 								style="background-color: #ededed; margin-top: 20px; margin-bottom: 20px; padding-top: 10px; padding-bottom: 10px;">
-								<form>
+								<div class="alert-info" th:if="${emailSent}">An email has been sent to the
+									email provided in registration. Please validate the email
+									address and update password information.</div>
+								<form th:action="@{/newAccount}" method="post">
 									<div class="form-group form-padding">
 										<label for="newUsername">* Username: </label> <input
 											required="required" type="text" class="form-control"
@@ -60,14 +68,16 @@
 									</div>
 									<!-- Form group div for button to maintain layout -->
 									<div class="form-group form-padding">
-										<button type="submit" class="btn btn-primary">Create new account</button>
-									</div>	
+										<button type="submit" class="btn btn-primary">Create
+											new account</button>
+									</div>
 								</form>
 							</div>
 						</div>
 					</div>
 					<!-- login pane -->
-					<div class="tab-pane fade" id="tab-2" th:classappend="${classActiveLogin}? 'show active'">
+					<div class="tab-pane fade" id="tab-2"
+						th:classappend="${classActiveLogin}? 'show active'">
 						<div class="card" style="border: none;">
 							<div class="card-block"
 								style="background-color: #ededed; margin-top: 20px; margin-bottom: 20px; padding-top: 10px; padding-bottom: 10px;">
@@ -82,18 +92,20 @@
 										<label for="password">* Password: </label> <input
 											required="required" type="password" class="form-control"
 											id="password" name="password" />
-										<p style="color: #828282">Enter the password that accompanies your username.</p>
+										<p style="color: #828282">Enter the password that
+											accompanies your username.</p>
 									</div>
 									<!-- Form group div for button to maintain layout -->
 									<div class="form-group form-padding">
 										<button type="submit" class="btn btn-primary">Login</button>
-									</div>	
+									</div>
 								</form>
 							</div>
 						</div>
 					</div>
 					<!-- forgot password pane -->
-					<div class="tab-pane fade" id="tab-3" th:classappend="${classActiveForgotPassword}? 'show active'">
+					<div class="tab-pane fade" id="tab-3"
+						th:classappend="${classActiveForgotPassword}? 'show active'">
 						<div class="card" style="border: none;">
 							<div class="card-block"
 								style="background-color: #ededed; margin-top: 20px; margin-bottom: 20px; padding-top: 10px; padding-bottom: 10px;">
@@ -102,12 +114,13 @@
 										<label for="recoverEmail">* Your Email: </label> <input
 											required="required" type="text" class="form-control"
 											id="recoverEmail" name="email" />
-										<p style="color: #828282">Enter your registered email address here.</p>
+										<p style="color: #828282">Enter your registered email
+											address here.</p>
 									</div>
 									<!-- Form group div for button to maintain layout -->
 									<div class="form-group form-padding">
 										<button type="submit" class="btn btn-primary">Submit</button>
-									</div>	
+									</div>
 								</form>
 							</div>
 						</div>
