@@ -1,6 +1,7 @@
 package com.yrra.bookstore.controller;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 import java.util.UUID;
@@ -21,10 +22,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.yrra.bookstore.domain.Book;
 import com.yrra.bookstore.domain.User;
 import com.yrra.bookstore.domain.security.PasswordResetToken;
 import com.yrra.bookstore.domain.security.Role;
 import com.yrra.bookstore.domain.security.UserRole;
+import com.yrra.bookstore.service.BookService;
 import com.yrra.bookstore.service.UserService;
 import com.yrra.bookstore.service.impl.UserSecurityService;
 import com.yrra.bookstore.utility.MailConstructor;
@@ -35,6 +38,9 @@ public class HomeController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private BookService bookService;
 
 	@Autowired
 	private UserSecurityService userSecurityService;
@@ -160,5 +166,12 @@ public class HomeController {
 
 		model.addAttribute("classActiveEdit", true);
 		return "myProfile";
+	}
+	
+	@RequestMapping("/bookshelf")
+	public String bookshelf(Model model) {
+		List<Book> bookList = bookService.findAll();
+		model.addAttribute("bookList", bookList);
+		return "bookshelf";
 	}
 }
