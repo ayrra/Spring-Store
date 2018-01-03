@@ -64,11 +64,11 @@
 										<div class="col-6">
 											<h4>
 												Our Price: <span style="color: #db3208;">$ <span
-													th:text="${book.ourPrice}"></span></span>
+													th:text="${#numbers.formatDecimal(book.ourPrice, 0, 'COMMA', 2, 'POINT')}"></span></span>
 											</h4>
 											<p>
 												List Price: <span style="text-decoration: line-through;">$
-													<span th:text="${book.listPrice}"></span>
+													<span th:text="${#numbers.formatDecimal(book.listPrice, 0, 'COMMA', 2, 'POINT')}"></span>
 												</span>
 											</p>
 											<p>
