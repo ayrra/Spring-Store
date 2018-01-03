@@ -9,7 +9,8 @@
 		<div class="row" style="margin-bottom: -100px;">
 			<div class="col-8">
 				<h2 class="section-headline">
-					<span th:text="${user}? ${#strings.toUpperCase(user.username) : 'All Books'}"></span>
+					<span
+						th:text="${user}? ${#strings.toUpperCase(user.username) : 'All Books'}"></span>
 				</h2>
 			</div>
 			<div class="col-4">
@@ -20,8 +21,8 @@
 			<img class="img-fluid" src="/image/wood.png"
 				style="margin-top: -70px; width: 100%; height: 100%;" />
 		</div>
-		<div class="row" style="margin-top: 60px;">
-			<div class="col-9 col-offset-3">
+		<div class="row" style="margin-top: 150px;">
+			<div class="col-9 offset-3">
 				<div th:if="${emptyList}">
 					<h5 style="font-style: italic;">List is empty!</h5>
 				</div>
@@ -35,22 +36,22 @@
 								<div th:if="${book != null}">
 									<div class="row">
 										<div class="col-3">
-											<img class="img-fluid shelf-book"
+											<a th:href="@{/bookDetails?id=}+${book.id}"><img
+												class="img-fluid shelf-book"
 												th:src="#{adminPath}+@{/image/book/}+${book.id}+'.png'" />
+											</a>
 										</div>
 										<div class="col-9">
-											<h4 th:text="${book.title}"></h4>
-											<span th:text="${book.publicationDate}"></span> <span
-												th:text="${book.author}"></span> <span
-												th:text="${#strings.capitalize(book.format)}"></span> <span
-												th:text="${book.numberOfPages}"><span> Pages</span></span>
-											<span
+											<a th:href="@{/bookDetails?id=}+${book.id}"><h4
+													th:text="${book.title}"></h4></a> <span
+												th:text="${book.publicationDate}"></span> <p
+												th:text="${book.author}"></p> <p
+												th:text="${#strings.capitalize(book.format)}"></p> <span
 												style="font-size: x-large; color: #db3208;">$<span
 												th:text="${#numbers.formatDecimal(book.ourPrice, 0, 'COMMA', 2, 'POINT')}"></span></span>
-											<span
-												style="text-decoration:line-through;">$<span
+											<span style="text-decoration: line-through;">$<span
 												th:text="${#numbers.formatDecimal(book.listPrice, 0, 'COMMA', 2, 'POINT')}"></span></span>
-												<p th:text="${#strings.abbreviate(book.description, 500)}"></p>
+											<p th:text="${#strings.abbreviate(book.description, 500)}"></p>
 										</div>
 									</div>
 								</div>
@@ -60,7 +61,7 @@
 				</table>
 			</div>
 		</div>
-		</div>
-		<div th:replace="common/header :: body-bottom-scripts"></div>
+	</div>
+	<div th:replace="common/header :: body-bottom-scripts"></div>
 </body>
 </html>
