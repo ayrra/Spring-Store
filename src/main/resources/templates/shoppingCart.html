@@ -58,17 +58,19 @@
 							</a>
 						</div>
 						<div class="col-6">
-							<a th:href="@{/bookDetails(id=${cartItem.book.id})}"><h4 th:text="${cartItem.book.title}"></h4></a>
+							<a th:href="@{/bookDetails(id=${cartItem.book.id})}"><h4
+									th:text="${cartItem.book.title}"></h4></a>
 							<p th:if="${cartItem.book.inStockNumber&gt;10}"
-								style="color: green;">In Stock</p>
+								style="color: green; margin-bottom: 0;">In Stock</p>
 							<p
 								th:if="${cartItem.book.inStockNumber&lt;10 and cartItem.book.inStockNumber&gt;0}"
-								style="color: green;">
+								style="color: green; margin-bottom: 0;">
 								Only <span th:text="${cartItem.book.inStockNumber}"></span> In
 								Stock
 							</p>
 							<p th:if="${cartItem.book.inStockNumber==0}"
-								style="color: darkred;">Out Of Stock</p>
+								style="color: darkred; margin-bottom: 0;">Out Of Stock</p>
+							<a th:href="@{/shoppingCart/removeItem?id=}+${cartItem.id}">Delete</a>
 						</div>
 						<div class="col-2">
 							<h5 style="color: #db3208 font-size:large;">
@@ -81,9 +83,10 @@
 								th:id="${cartItem.id}" th:name="qty"
 								th:disabled="${cartItem.book.inStockNumber==0}"
 								class="form-control cartItemQty" th:value="${cartItem.qty}" />
-							<button style="display: none;"
-								th:id="'update-item-'+'${cartItem.id}'" type="submit"
-								class="btn btn-warning btn-xs">Update</button>
+							<button
+								style="display: none; padding: .25rem .4rem; font-size: .875rem; line-height: 1; border-radius: .2rem;"
+								th:id="'update-item-'+${cartItem.id}" type="submit"
+								class="btn btn-warning">Update</button>
 						</div>
 					</form>
 					<hr />

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.yrra.bookstore.domain.Book;
 import com.yrra.bookstore.domain.CartItem;
@@ -63,5 +64,22 @@ public class ShoppingCartController {
 			
 			
 			return "forward:/bookDetails?id="+book.getId();
+		}
+		
+		@RequestMapping("/updateCartItem")
+		public String updateCartItem(@ModelAttribute("id") Long cartItemId, @ModelAttribute("qty") int qty) {
+			CartItem cartItem = cartItemService.findById(cartItemId);
+			cartItem.setQty(qty);
+			cartItemService.updateCartItem(cartItem);
+			
+			return "forward:/shoppingCart/cart";
+			
+		}
+		
+		@RequestMapping("/removeItem")
+		public String removeItem(@RequestParam("id") Long id) {
+			cartItemService.removeCartItem(cartItemService.findById(id));
+			
+			return "forward:/shoppingCart/cart";
 		}
 }
