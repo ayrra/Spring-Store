@@ -33,6 +33,14 @@ public class Order {
 	@OneToOne(cascade = CascadeType.ALL)
 	private ShippingAddress shippingAddress;
 	
+	public BillingAddress getBillingAddress() {
+		return billingAddress;
+	}
+	
+	public void setBillingAddress(BillingAddress billingAddress) {
+		this.billingAddress = billingAddress;
+	}
+
 	@OneToOne(cascade = CascadeType.ALL)
 	private BillingAddress billingAddress;
 	

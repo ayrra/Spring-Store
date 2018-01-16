@@ -46,6 +46,15 @@ public class User implements UserDetails {
 	private String phoneNum;
 	private boolean enabled=true;
 	
+	@OneToMany(mappedBy = "user")
+	private List<Order> orderList;
+	
+	public List<Order> getOrderList() {
+		return orderList;
+	}
+	public void setOrderList(List<Order> orderList) {
+		this.orderList = orderList;
+	}
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
 	private ShoppingCart shoppingCart;
 	

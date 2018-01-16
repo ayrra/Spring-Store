@@ -45,9 +45,8 @@
 						<h4>Qty</h4>
 					</div>
 				</div>
-
+				<hr />
 				<div th:each="cartItem : ${cartItemList}">
-					<hr />
 					<form class="row" th:action="@{/shoppingCart/updateCartItem}"
 						method="post">
 
@@ -104,6 +103,7 @@
 			</div>
 		</div>
 	</div>
+	<div th:replace="common/header :: footer"></div>
 	<div th:replace="common/header :: body-bottom-scripts"></div>
 </body>
 </html>

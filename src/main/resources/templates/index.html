@@ -76,21 +76,21 @@
 			<div class="col-4">
 				<div class="card">
 					<div class="card-block">
-						<img src="/image/bestseller.png" class="img-fluid" />
+						<a th:href="@{/bookshelf}"><img src="/image/bestseller.png" class="img-fluid" /></a>
 					</div>
 				</div>
 			</div>
 			<div class="col-4">
 				<div class="card">
 					<div class="card-block">
-						<img src="/image/hours.png" class="img-fluid" />
+						<a th:href="@{/hours}"><img src="/image/hours.png" class="img-fluid" /></a>
 					</div>
 				</div>
 			</div>
 			<div class="col-4">
 				<div class="card">
 					<div class="card-block">
-						<img src="/image/faq.png" class="img-fluid" />
+						<a th:href="@{/faq}"><img src="/image/faq.png" class="img-fluid" /></a>
 					</div>
 				</div>
 			</div>
@@ -197,6 +197,7 @@
 
 	</div>
 
+	<div th:replace="common/header :: footer"></div>
 	<div th:replace="common/header :: body-bottom-scripts"></div>
 
 </body>

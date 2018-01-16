@@ -9,8 +9,7 @@
 		<div class="row" style="margin-bottom: -100px;">
 			<div class="col-8">
 				<h2 class="section-headline">
-					<span
-						th:text="${user}? ${#strings.toUpperCase(user.username) : 'All Books'}"></span>
+
 				</h2>
 			</div>
 			<div class="col-4">
@@ -22,7 +21,20 @@
 				style="margin-top: -70px; width: 100%; height: 100%;" />
 		</div>
 		<div class="row" style="margin-top: 150px;">
-			<div class="col-9 offset-3">
+			<div class="col-3">
+				<h3><label for="category">Category</label></h3>
+				<div class="list-group" id="category">
+					<a th:href="@{/bookshelf(category='all')}" th:classappend="${activeAll}? 'active'" class="list-group-item">All</a>
+					<a th:href="@{/searchByCategory(category='Management')}" th:classappend="${activeManagement}? 'active'" class="list-group-item">Management</a>
+					<a th:href="@{/searchByCategory(category='Fiction')}" th:classappend="${activeFiction}? 'active'" class="list-group-item">Fiction</a>
+					<a th:href="@{/searchByCategory(category='Engineering')}" th:classappend="${activeEngineering}? 'active'" class="list-group-item">Engineering</a>
+					<a th:href="@{/searchByCategory(category='Programming')}" th:classappend="${activeProgramming}? 'active'" class="list-group-item">Programming</a>
+					<a th:href="@{/searchByCategory(category='Arts &amp; Literature')}" th:classappend="${activeArtsLiterature}? 'active'" class="list-group-item">Arts &amp; Literature</a>
+					
+					
+				</div>
+			</div>
+			<div class="col-9">
 				<div th:if="${emptyList}">
 					<h5 style="font-style: italic;">List is empty!</h5>
 				</div>
@@ -44,10 +56,10 @@
 										<div class="col-9">
 											<a th:href="@{/bookDetails?id=}+${book.id}"><h4
 													th:text="${book.title}"></h4></a> <span
-												th:text="${book.publicationDate}"></span> <p
-												th:text="${book.author}"></p> <p
-												th:text="${#strings.capitalize(book.format)}"></p> <span
-												style="font-size: x-large; color: #db3208;">$<span
+												th:text="${book.publicationDate}"></span>
+											<p th:text="${book.author}"></p>
+											<p th:text="${#strings.capitalize(book.format)}"></p>
+											<span style="font-size: x-large; color: #db3208;">$<span
 												th:text="${#numbers.formatDecimal(book.ourPrice, 0, 'COMMA', 2, 'POINT')}"></span></span>
 											<span style="text-decoration: line-through;">$<span
 												th:text="${#numbers.formatDecimal(book.listPrice, 0, 'COMMA', 2, 'POINT')}"></span></span>
@@ -62,6 +74,25 @@
 			</div>
 		</div>
 	</div>
+	<div th:replace="common/header :: footer"></div>
 	<div th:replace="common/header :: body-bottom-scripts"></div>
+	<script>
+		$(document).ready(
+				function() {
+					$('#bookList').DataTable(
+							{
+								"lengthMenu" : [ [ 5, 10, 15, 20, -1 ],
+										[ 5, 10, 15, 20, "All" ] ],
+								"ordering" : false,
+								stateSave : true
+							});
+					$('#bookList').on('page.dt', function() {
+						$('html, body').animate({
+							scrollTop : $('#bookList').offset().top
+						}, 200);
+					});
+				});
+	</script>
+
 </body>
 </html>

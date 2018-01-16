@@ -13,6 +13,8 @@
 
 <!-- Custom styles for this template -->
 <link href="/css/style.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css"
+	href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css" />
 <link rel="icon" href="/image/apple-touch-icon.png" />
 </head>
 
@@ -32,16 +34,16 @@
 			<div class="collapse navbar-collapse" id="navbarsExample09">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="http://example.com"
+						class="nav-link dropdown-toggle"
 						id="dropdown09" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">Books</a>
 						<div class="dropdown-menu" aria-labelledby="dropdown09">
 							<a class="dropdown-item" th:href="@{/bookshelf}">Browse the
-								bookshelf</a> <a class="dropdown-item" href="#">Store hours
-								&#38; Directions</a> <a class="dropdown-item" href="#">FAQ</a>
+								bookshelf</a> <a class="dropdown-item" th:href="@{/hours}">Store hours
+								&#38; Directions</a> <a class="dropdown-item" th:href="@{/faq}">FAQ</a>
 						</div></li>
 					<li>
-						<form class="form-inline">
+						<form class="form-inline" th:action="@{searchBook}" method="post">
 							<input type="text" name="keyword" class="form-control mr-sm-2"
 								placeholder="Book title" />
 							<button type="submit" class="btn btn-default my-2 my-sm-0">Search</button>
@@ -49,8 +51,8 @@
 					</li>
 				</ul>
 				<ul class="navbar-nav navbar-right">
-					<li class="nav-item"><a class="nav-link" th:href="@{/shoppingCart/cart}">SHOPPING
-							CART</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/shoppingCart/cart}">SHOPPING CART</a></li>
 					<li class="nav-item"><a class="nav-link"
 						sec:authorize="isAnonymous()" th:href="@{/login}">MY ACCOUNT</a></li>
 					<li class="nav-item"><a class="nav-link"
@@ -63,12 +65,57 @@
 			</div>
 		</nav>
 	</div>
+	
+	<div th:fragment="footer">
+		<br/><br/>
+		<footer>
+			<div class="row">
+				<div class="col-3 footerLeft">
+					<div class="logofooter">
+						<a th:ref="@{/}"><img class="img-fluid" src="/image/logo.png" style="width:200px;"/></a>
+					</div>
+					<p>The Book Store. <br /> Since 2003</p>
+				</div>
+				<div class="col-3 paddingtop-bottom">
+					<h6 class="heading7">Contact</h6>
+					<ul class="post">
+						<p><i class="fa fa-map-pin"></i> 123 ABC Ave<br /> San Diego, Ca 91910</p>
+						<p><i class="fa fa-phone"></i> Phone 1-619-111-1111</p>
+						<p><i class="fa fa-envelope"></i> E-mail : andres@yrra.net</p>
+					</ul>
+				</div>
+				<div class="col-3 paddingtop-bottom">
+					<h6 class="heading7">Contact</h6>
+					<ul class="footer-ul">
+						<li><a href="#">Privacy Policy</a></li>
+						<li><a href="#">Terms &#38; Conditions</a></li>
+					</ul>
+				</div>
+				<div class="col-3 paddingtop-bottom">
+					<h6 class="heading7">Store Hours</h6>
+					<div class="post">
+						<p>Monday - Saturday: 9am - 11pm</p>
+						<p>Sunday: 10am - 10pm</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<div class="copyright">
+			<div class="col-md-6">
+				<p>2017 - All rights Reserved</p>
+			</div>
+			<div class="col-md-6">
+				<p>:)</p>
+			</div>
+		</div>
+	</div>
+	
 	<div th:fragment="body-bottom-scripts">
 		<!-- Bootstrap core JavaScript
     ================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		<script src="https://code.jquery.com/jquery-3.2.1.js"
+			integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
 			crossorigin="anonymous"></script>
 		<script
 			src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
@@ -81,6 +128,9 @@
 		<script src=" https://use.fontawesome.com/6641a257d9.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
 		<script src="/js/scripts.js"></script>
+		<script type="text/javascript" charset="utf8"
+			src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+
 	</div>
 </body>
 </html>
